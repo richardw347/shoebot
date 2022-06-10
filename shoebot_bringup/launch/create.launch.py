@@ -8,23 +8,16 @@ from launch_ros.actions import Node
 
 
 def generate_launch_description():
-    joy_config_path = PathJoinSubstitution(
-        [FindPackageShare("shoebot_bringup"), "config", "joy_driver.yaml"]
+    create_config_path = PathJoinSubstitution(
+        [FindPackageShare("shoebot_bringup"), "config", "create_driver.yaml"]
     )
 
     return LaunchDescription([
         Node(
-            package='joy',
-            executable='joy_node',
-            name='joy_node',
+            package='create_driver',
+            executable='create_driver',
+            name='create_driver',
             output='screen',
-        ),
-
-        Node(
-            package='joy_teleop',
-            executable='joy_teleop',
-            name='joy_teleop',
-            output='screen',
-            parameters=[joy_config_path]
+            parameters=[create_config_path]
         )
     ])
