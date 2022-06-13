@@ -6,7 +6,8 @@ def generate_launch_description():
     return LaunchDescription([
         # Realsense
         launch_ros.actions.Node(
-            package='realsense_ros2_camera', node_executable='realsense_ros2_camera',
-            output='screen'),
-
+            name='realsense2_camera',
+            package='realsense2_camera', executable='realsense2_camera_node',
+            output='screen'
+        )
     ])
