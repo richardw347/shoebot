@@ -7,29 +7,17 @@ from launch_ros.actions import Node
 
 
 def generate_launch_description():
-    ydlidar_config_path = PathJoinSubstitution(
+    urg_config_path = PathJoinSubstitution(
         [FindPackageShare("shoebot_bringup"), "config", "urg_driver.yaml"]
     )
 
     return LaunchDescription([
-        DeclareLaunchArgument(
-            name='topic_name', 
-            default_value='scan',
-            description='Laser Topic Name'
-        ),
-
-        DeclareLaunchArgument(
-            name='frame_id', 
-            default_value='laser',
-            description='Laser Frame ID'
-        ),
-
         Node(
             package='urg_node',
             executable='urg_node_driver',
             name='urg_node',
             output='screen',
-            parameters=[LaunchConfiguration('param')]
+            parameters=[urg_config_path]
         )
     ])
 

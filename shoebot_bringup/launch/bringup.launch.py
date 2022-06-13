@@ -13,11 +13,15 @@ def generate_launch_description():
     )
 
     create_launch_path = PathJoinSubstitution(
-        [FindPackageShare('shoebot_description'), 'launch', 'create.launch.py']
+        [FindPackageShare('shoebot_bringup'), 'launch', 'create.launch.py']
     )
 
     laser_launch_path = PathJoinSubstitution(
-        [FindPackageShare('shoebot_description'), 'launch', 'urg_node.launch.py']
+        [FindPackageShare('shoebot_bringup'), 'launch', 'urg_node.launch.py']
+    )
+
+    realsense_launch_path = PathJoinSubstitution(
+        [FindPackageShare('shoebot_bringup'), 'launch', 'realsense.launch.py']
     )
 
     return LaunchDescription([
@@ -32,5 +36,9 @@ def generate_launch_description():
 
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(laser_launch_path),
+        ),
+
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(realsense_launch_path),
         ),
     ])
