@@ -8,6 +8,9 @@ def generate_launch_description():
         launch_ros.actions.Node(
             name='realsense2_camera',
             package='realsense2_camera', executable='realsense2_camera_node',
-            output='screen'
+            output='screen',
+            parameters=[
+                {"publish_tf": False},
+            ]
         )
     ])
