@@ -3,13 +3,14 @@
   <xacro:include filename="$(find shoebot_description)/urdf/create_base.urdf.xacro" />
   <xacro:include filename="$(find shoebot_description)/urdf/shoebot_gazebo.urdf.xacro" />
   <xacro:include filename="$(find realsense2_description)/urdf/_d435.urdf.xacro" />
+  <xacro:include filename="$(find shoebot_description)/urdf/generic_laser.urdf.xacro" />
 
   <xacro:arg name="use_nominal_extrinsics" default="True" />
 
   <xacro:create_base wheel_separation="0.235" base_diameter="0.3485">
-    <mesh filename="package://shoebot_description/meshes/shoebot_collision.stl" scale="0.001 0.001 0.001" />
+    <mesh filename="$(find shoebot_description)/meshes/shoebot_collision.stl" scale="0.001 0.001 0.001" />
   </xacro:create_base>
-
+<!-- 
   <link name="laser_link" >
       <inertial>
       <mass value="0.01" />
@@ -22,7 +23,15 @@
       <origin xyz="0 0 0.13" rpy="0 0 0" />
       <parent link="base_link" />
       <child link="laser_link" />
-  </joint>
+  </joint> -->
+
+  <xacro:property name="laser_pose">
+    <origin xyz="0 0 0.13" rpy="0 0 0"/>
+  </xacro:property>
+
+  <xacro:generic_laser>
+    <xacro:insert_block name="laser_pose" />
+  </xacro:generic_laser>
 
   <xacro:sensor_d435 parent="base_link">
     <origin xyz="0.045 0 0.078" rpy="0 0 0"/>
