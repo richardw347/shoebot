@@ -10,12 +10,9 @@
   <url type="repository">https://github.com/shoebot/shoebot</url>
   <url type="bugtracker">https://github.com/shoebot/shoebot/issues</url>
   <buildtool_depend>ament_cmake</buildtool_depend>
-  <exec_depend>robot_localization</exec_depend>
   <exec_depend>joy_linux</exec_depend>
   <exec_depend>teleop_twist_joy</exec_depend>
   <exec_depend>teleop_twist_keyboard</exec_depend>
-  <exec_depend>micro_ros_agent</exec_depend>
-  <exec_depend>depthimage_to_laserscan</exec_depend>
   <export>
     <build_type>ament_cmake</build_type>
   </export>

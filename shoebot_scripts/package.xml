@@ -14,8 +14,8 @@
 
   <depend>rclpy</depend>
   <depend>std_msgs</depend>
-  <depend>python-Jetson.GPIO</depend>
-  <depend>python-smbus</depend>
+  <!-- <depend>python-Jetson.GPIO</depend>
+  <depend>python-smbus</depend> -->
 
   <export>
     <build_type>ament_python</build_type>
