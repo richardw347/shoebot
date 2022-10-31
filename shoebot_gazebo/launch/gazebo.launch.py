@@ -19,7 +19,7 @@ def generate_launch_description():
     )
 
     world_path = PathJoinSubstitution(
-        [FindPackageShare("shoebot_gazebo"), "worlds", "playground.world"]
+        [FindPackageShare("shoebot_gazebo"), "worlds", "home.world"]
     )
 
     description_launch_path = PathJoinSubstitution(
@@ -47,11 +47,6 @@ def generate_launch_description():
                 output="screen",
                 arguments=["-topic", "robot_description", "-entity", "shoebot"],
             ),
-            # Node(
-            #     package="linorobot2_gazebo",
-            #     executable="command_timeout.py",
-            #     name="command_timeout",
-            # ),
             IncludeLaunchDescription(
                 PythonLaunchDescriptionSource(description_launch_path),
                 launch_arguments={
